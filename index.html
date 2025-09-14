@@ -26,4 +26,88 @@
     .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.8rem 1rem; border-radius:.8rem; border:1px solid var(--ring); }
     .btn.primary { background:var(--accent); color:#031017; border-color: transparent; font-weight:600 }
     .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap:1rem; padding: 1rem 0 3rem }
-    .card { background:var(--card); border:1px solid var(-
+    .card { background:var(--card); border:1px solid var(--ring); border-radius:1rem; padding:1rem; transition: transform .2s ease, border-color .2s ease }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent) }
+    .card h3 { margin:.2rem 0 .4rem; font-size:1.05rem }
+    .card p { margin:0; color:var(--muted); font-size:.95rem }
+    .chip { display:inline-block; font-size:.75rem; padding:.2rem .5rem; border:1px solid var(--ring); border-radius:.6rem; margin-top:.6rem }
+    footer { border-top:1px solid var(--ring); padding: 1.25rem 0; color:var(--muted); font-size:.95rem }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">🐍 Portafolio Python</div>
+      <nav class="nav">
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Ejemplos de actividades en <span style="text-decoration:underline wavy var(--accent); text-underline-offset:6px;">Python</span></h1>
+      <p>
+        Ocho carpetas con ejercicios y mini-proyectos. Cada tarjeta te lleva a una página con título, descripción
+        y el código con resaltado profesional, botón de copiar, y números de línea.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#proyectos">Ver proyectos</a>
+        <a class="btn" href="./about.html">Acerca de</a>
+      </div>
+    </section>
+
+    <section id="proyectos" class="grid">
+      <!-- Duplica/edita estas tarjetas, una por carpeta -->
+      <a class="card" href="./items/01-intro.html">
+        <div class="chip">#01</div>
+        <h3>Introducción · Variables y tipos</h3>
+        <p>Operaciones básicas, input/output y buenas prácticas iniciales.</p>
+      </a>
+
+      <a class="card" href="./items/02-control-flujo.html">
+        <div class="chip">#02</div>
+        <h3>Estructuras de control</h3>
+        <p>Condicionales, bucles y comprensión de listas.</p>
+      </a>
+
+      <a class="card" href="./items/03-funciones.html">
+        <div class="chip">#03</div>
+        <h3>Funciones y pruebas</h3>
+        <p>Funciones puras, docstrings y tests rápidos.</p>
+      </a>
+
+      <a class="card" href="./items/04-archivos.html">
+        <div class="chip">#04</div>
+        <h3>Manejo de archivos</h3>
+        <p>Lectura/escritura, CSV y JSON.</p>
+      </a>
+
+      <a class="card" href="./items/05-modulos.html">
+        <div class="chip">#05</div>
+        <h3>Módulos y entornos</h3>
+        <p>Imports, virtualenv y organización del código.</p>
+      </a>
+
+      <a class="card" href="./items/06-oo.html">
+        <div class="chip">#06</div>
+        <h3>POO en Python</h3>
+        <p>Clases, herencia y dataclasses.</p>
+      </a>
+
+      <a class="card" href="./items/07-datos.html">
+        <div class="chip">#07</div>
+        <h3>Análisis de datos</h3>
+        <p>pandas, matplotlib y tips de rendimiento.</p>
+      </a>
+
+      <a class="card" href="./items/08-web.html">
+        <div class="chip">#08</div>
+        <h3>Web y APIs</h3>
+        <p>peticiones HTTP, parseo y pequeños servicios.</p>
+      </a>
+    </section>
+
+    <footer>© <span id="y"></span> Tu Nombre · Hecho con GitHub Pages</footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
