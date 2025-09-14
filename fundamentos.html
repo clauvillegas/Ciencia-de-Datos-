@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fundamentos de Python · Portafolio</title>
+  <meta name="description" content="Módulo Fundamentos de Python: índice y ejemplos con código." />
+  <link rel="icon" href="../assets/favicon.ico" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <!-- Prism.js (resaltado + líneas + copiado) -->
+  <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.css" />
+  <style>
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem }
+    header { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.5rem 0 1rem; border-bottom:1px solid var(--ring) }
+    .crumbs a { opacity:.85 }
+    h1 { margin: 1rem 0 .5rem; font-size: clamp(1.8rem, 3.5vw, 2.4rem) }
+    .muted { color: var(--muted) }
+    .toc { margin: 1rem 0 1.5rem; padding: .9rem; border:1px dashed var(--ring); border-radius:.7rem }
+    .toc a { display:inline-block; margin:.2rem .6rem .2rem 0; padding:.25rem .55rem; border:1px solid var(--ring); border-radius:.6rem }
+    section.example { margin: 2rem 0; }
+    .title { margin: .2rem 0; font-size: 1.3rem; }
+    .toolbar { display:flex; gap:.5rem; justify-content:flex-end; margin:.4rem 0 .6rem }
+    .btn { padding:.45rem .7rem; border:1px solid var(--ring); border-radius:.5rem; cursor:pointer; background:transparent; color:inherit }
+    pre { border-radius:.8rem; border:1px solid var(--ring); }
+    pre[class*="language-"] { margin:0 }
+    .top { text-align:right; margin-top:.4rem }
+    .top a { font-size:.9rem; opacity:.8 }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="crumbs"><a href="../index.html">← Portafolio</a></div>
+      <nav><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></nav>
+    </header>
+
+    <main>
+      <h1>Fundamentos de Python</h1>
+      <p class="muted">Colección de códigos base: Clases, Geometría, Productos, EDA, Biblioteca (finanzas o módulo 2), Iteración, y más.</p>
+
+      <!-- ÍNDICE -->
+      <nav class="toc" aria-label="Índice del módulo">
+        <strong>Índice:</strong>
+        <a href="#clases">Clases</a>
+        <a href="#geometria">Geometría</a>
+        <a href="#productos">Productos</a>
+        <a href="#eda">EDA</a>
+        <a href="#fin-biblioteca">Fin M2 Biblioteca</a>
+        <a href="#iteracion">Iteración</a>
+        <!-- Si tienes 8, añade dos más aquí -->
+      </nav>
+
+      <!-- 1) CLASES -->
+      <section id="clases" class="example" aria-labelledby="h-clases">
+        <h2 id="h-clases" class="title">Clases (OOP)</h2>
+        <p class="muted">Modelo básico de clases y herencia en Python. Fuente: <code>Python-Clases.ipynb</code></p>
+        <div class="toolbar">
+          <button class="btn" data-copy="#code-clases">Copiar código</button>
+        </div>
+        <pre class="line-numbers"><code class="language-python" id="code-clases">
+# Pega aquí el código principal de "Python-Clases.ipynb"
+# Ejemplo mínimo:
+from dataclasses import dataclass
+
+@dataclass
+class Producto:
+    nombre: str
+    precio: float
+
+    def con_descuento(self, pct: float) -> float:
+        return round(self.precio * (1 - pct), 2)
+        </code></pre>
+        <div class="top"><a href="#top">↑ volver al índice</a></div>
+      </section>
+
+      <!-- 2) GEOMETRÍA -->
+      <section id="geometria" class="example" aria-labelledby="h-geometria">
+        <h2 id="h-geometria" class="title">Geometría</h2>
+        <p class="muted">Figuras, áreas y perímetros. Fuente: <code>Python-Geometria.ipynb</code></p>
+        <div class="toolbar">
+          <button class="btn" data-copy="#code-geometria">Copiar código</button>
+        </div>
+        <pre class="line-numbers"><code class="language-python" id="code-geometria">
+# Pega aquí el código principal de "Python-Geometria.ipynb"
+# Ejemplo mínimo:
+import math
+
+def area_circulo(r: float) -> float:
+    return math.pi * r**2
+        </code></pre>
+        <div class="top"><a href="#top">↑ volver al índice</a></div>
+      </section>
+
+      <!-- 3) PRODUCTOS -->
+      <section id="productos" class="example" aria-labelledby="h-productos">
+        <h2 id="h-productos" class="title">Productos</h2>
+        <p class="muted">Gestión de catálogo y operaciones. Fuente: <code>Python-Productos.ipynb</code></p>
+        <div class="toolbar">
+          <button class="btn" data-copy="#code-productos">Copiar código</button>
+        </div>
+        <pre class="line-numbers"><code class="language-python" id="code-productos">
+# Pega aquí el código principal de "Python-Productos.ipynb"
+# Ejemplo mínimo:
+def filtrar_por_precio(items, min_precio=0, max_precio=float("inf")):
+    return [it for it in items if min_precio <= it["precio"] <= max_precio]
+        </code></pre>
+        <div class="top"><a href="#top">↑ volver al índice</a></div>
+      </section>
+
+      <!-- 4) EDA -->
+      <section id="eda" class="example" aria-labelledby="h-eda">
+        <h2 id="h-eda" class="title">Exploratory Data Analysis (EDA)</h2>
+        <p class="muted">Carga, limpieza y visualización. Fuente: <code>Pyhton-EDA.ipynb</code> (revisa el nombre del archivo: “Pyhton”)</p>
+        <div class="toolbar">
+          <button class="btn" data-copy="#code-eda">Copiar código</button>
+        </div>
+        <pre class="line-numbers"><code class="language-python" id="code-eda">
+# Pega aquí el código principal de "Pyhton-EDA.ipynb"
+# Ejemplo mínimo:
+import pandas as pd
+
+def resumen(df: pd.DataFrame):
+    return {
+        "filas": len(df),
+        "columnas": len(df.columns),
+        "nulos": int(df.isna().sum().sum()),
+    }
+        </code></pre>
+        <div class="top"><a href="#top">↑ volver al índice</a></div>
+      </section>
+
+      <!-- 5) FIN M2 BIBLIOTECA -->
+      <section id="fin-biblioteca" class="example" aria-labelledby="h-fin">
+        <h2 id="h-fin" class="title">Fin M2 · Biblioteca</h2>
+        <p class="muted">Gestión de préstamos/usuarios. Fuente: <code>Python-FinM2Biblioteca.ipynb</code></p>
+        <div class="toolbar">
+          <button class="btn" data-copy="#code-fin">Copiar código</button>
+        </div>
+        <pre class="line-numbers"><code class="language-python" id="code-fin">
+# Pega aquí el código principal de "Python-FinM2Biblioteca.ipynb"
+# Ejemplo mínimo:
+class Biblioteca:
+    def __init__(self):
+        self.prestamos = {}
+
+    def prestar(self, usuario, libro):
+        self.prestamos.setdefault(usuario, []).append(libro)
+        </code></pre>
+        <div class="top"><a href="#top">↑ volver al índice</a></div>
+      </section>
+
+      <!-- 6) ITERACIÓN -->
+      <section id="iteracion" class="example" aria-labelledby="h-iter">
+        <h2 id="h-iter" class="title">Iteración</h2>
+        <p class="muted">Patrones de iteración y generators. Fuente: <code>Python-Iteracion.ipynb</code></p>
+        <div class="toolbar">
+          <button class="btn" data-copy="#code-iter">Copiar código</button>
+        </div>
+        <pre class="line-numbers"><code class="language-python" id="code-iter">
+# Pega aquí el código principal de "Python-Iteracion.ipynb"
+# Ejemplo mínimo:
+def take(n, iterable):
+    for i, x in enumerate(iterable):
+        if i == n: break
+        yield x
+        </code></pre>
+        <div class="top"><a href="#top">↑ volver al índice</a></div>
+      </section>
+
+      <!-- Si tienes 8 secciones, duplica el bloque "section.example" y cambia id/título. -->
+    </main>
+
+    <footer style="margin-top:2rem; color:var(--muted)">© <span id="y"></span> Tu Nombre</footer>
+  </div>
+
+  <!-- Punto de retorno del índice -->
+  <div id="top" hidden></div>
+
+  <!-- Prism core + autoloader + líneas -->
+  <script src="https://unpkg.com/prismjs/components/prism-core.min.js"></script>
+  <script src="https://unpkg.com/prismjs/plugins/autoloader/prism-autoloader.min.js" data-autoloader-path="https://unpkg.com/prismjs/components/"></script>
+  <script src="https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script>
+    // Copiado por botón: cada botón tiene data-copy con el selector del <code> destino
+    document.querySelectorAll('button[data-copy]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const target = document.querySelector(btn.dataset.copy);
+        const text = target?.innerText ?? '';
+        try {
+          await navigator.clipboard.writeText(text);
+          const old = btn.textContent;
+          btn.textContent = '¡Copiado!';
+          setTimeout(() => btn.textContent = old, 1600);
+        } catch {
+          const old = btn.textContent;
+          btn.textContent = 'Error al copiar';
+          setTimeout(() => btn.textContent = old, 1600);
+        }
+      });
+    });
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
