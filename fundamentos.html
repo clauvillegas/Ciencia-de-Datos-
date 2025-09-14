@@ -1,32 +1,36 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="styles.css" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fundamentos de Python · Portafolio</title>
-  <meta name="description" content="Módulo Fundamentos de Python: índice y ejemplos con código." />
+  <meta name="description" content="Módulo Fundamentos de Python: índice y ejemplos con código desde .ipynb" />
   <link rel="icon" href="../assets/favicon.ico" />
   <link rel="stylesheet" href="../styles.css" />
 
-  <!-- Prism.js (resaltado + líneas + copiado) -->
+  <!-- Prism (resaltado + líneas) -->
   <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Marked para convertir markdown (si luego quieres mostrar también texto de las celdas): -->
+  <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
   <style>
     .wrap { max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem }
     header { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.5rem 0 1rem; border-bottom:1px solid var(--ring) }
     .crumbs a { opacity:.85 }
     h1 { margin: 1rem 0 .5rem; font-size: clamp(1.8rem, 3.5vw, 2.4rem) }
     .muted { color: var(--muted) }
-    .toc { margin: 1rem 0 1.5rem; padding: .9rem; border:1px dashed var(--ring); border-radius:.7rem }
-    .toc a { display:inline-block; margin:.2rem .6rem .2rem 0; padding:.25rem .55rem; border:1px solid var(--ring); border-radius:.6rem }
+    .toc { margin: 1rem 0 1.5rem; padding: 1rem; border:1px dashed var(--ring); border-radius: 1rem; background:#fff; box-shadow: var(--shadow) }
+    .toc a { display:inline-block; margin:.25rem .6rem .25rem 0; padding:.35rem .7rem; border:1px solid var(--ring); border-radius:.8rem; }
     section.example { margin: 2rem 0; }
-    .title { margin: .2rem 0; font-size: 1.3rem; }
+    .title { margin:.2rem 0; font-size: 1.3rem }
     .toolbar { display:flex; gap:.5rem; justify-content:flex-end; margin:.4rem 0 .6rem }
-    .btn { padding:.45rem .7rem; border:1px solid var(--ring); border-radius:.5rem; cursor:pointer; background:transparent; color:inherit }
-    pre { border-radius:.8rem; border:1px solid var(--ring); }
+    .btn { padding:.45rem .75rem; border:1px solid var(--ring); border-radius:.6rem; background:#fff; cursor:pointer }
+    pre { border-radius: 1rem; border:1px solid var(--ring); background:#fff; box-shadow: var(--shadow) }
     pre[class*="language-"] { margin:0 }
-    .top { text-align:right; margin-top:.4rem }
+    .loading { font-size:.95rem; color: var(--muted); }
+    .top { text-align:right; margin-top:.5rem }
     .top a { font-size:.9rem; opacity:.8 }
   </style>
 </head>
@@ -39,286 +43,129 @@
 
     <main>
       <h1>Fundamentos de Python</h1>
-      <p class="muted">Colección de códigos base: Clases, Geometría, Productos, EDA, Biblioteca (finanzas o módulo 2), Iteración, y más.</p>
+      <p class="muted">Esta página carga automáticamente el <strong>código</strong> desde tus notebooks <code>.ipynb</code> y lo muestra con resaltado y números de línea.</p>
 
-      <!-- ÍNDICE -->
-      <nav class="toc" aria-label="Índice del módulo">
-        <strong>Índice:</strong>
-        <a href="MODULO2 - FUNDAMENTOS PYTHON/hola.html">Clases</a>
-        <a href="geometria.html">Geometría</a>
-        <a href="productos.html">Productos</a>
-        <a href="#eda">EDA</a>
-        <a href="#fin-biblioteca">Fin M2 Biblioteca</a>
-        <a href="#iteracion">Iteración</a>
-        <!-- Si tienes 8, añade dos más aquí -->
-      </nav>
+      <!-- ÍNDICE (se completa con JS) -->
+      <nav class="toc" id="toc" aria-label="Índice del módulo"><strong>Índice:</strong></nav>
 
-      <!-- 1) CLASES -->
-      <section id="clases" class="example" aria-labelledby="h-clases">
-        <h2 id="h-clases" class="title">Clases (OOP)</h2>
-        <p class="muted">Modelo básico de clases y herencia en Python. Fuente: <code>Python-Clases.ipynb</code></p>
-        <div class="toolbar">
-          <button class="btn" data-copy="#code-clases">Copiar código</button>
-        </div>
-        <pre class="line-numbers"><code class="language-python" id="code-clases">
-# Pega aquí el código principal de "Python-Clases.ipynb"
-# Ejemplo mínimo:
-from dataclasses import dataclass
-
-@dataclass
-class Producto:
-    nombre: str
-    precio: float
-
-    def con_descuento(self, pct: float) -> float:
-        return round(self.precio * (1 - pct), 2)
-        </code></pre>
-        <div class="top"><a href="#top">↑ volver al índice</a></div>
-      </section>
-
-      <!-- 2) GEOMETRÍA -->
-      <section id="geometria" class="example" aria-labelledby="h-geometria">
-        <h2 id="h-geometria" class="title">Geometría</h2>
-        <p class="muted">Figuras, áreas y perímetros. Fuente: <code>Python-Geometria.ipynb</code></p>
-        <div class="toolbar">
-          <button class="btn" data-copy="#code-geometria">Copiar código</button>
-        </div>
-        <pre class="line-numbers"><code class="language-python" id="code-geometria">
-def calcular_area_rectangulo(base, altura):
-    area = base * altura
-    return area
-
-def calcular_circulo(radio):
-    import math
-    area = math.pi * radio ** 2
-    return area
-
-def calcular_promedio(numeros):
-    suma = sum(numeros)
-    promedio = suma / len(numeros)
-    return promedio
-
-def calcular_promedio_avanzado(numeros):
-    import statistics
-    promedio = statistics.mean(numeros)
-    return promedio
-
-
-def generar_numeros_aleatorios(cantidad, limite):
-    import random
-    numeros_aleatorios = [random.randint(1, limite) for _ in range(cantidad)]
-    return numeros_aleatorios
-
-def validanumero(tipo,mensaje):
-    while True:
-        try:
-            if tipo == "int":
-              numero = int(input(mensaje))
-            elif tipo == "float":
-              numero = float(input(mensaje))
-            break  # Salir del bucle si el input es válido
-        except ValueError:
-            print("Error: Debes ingresar un número válido.")
-    return numero
-
-
-#area triangulo
-print("Area de triángulo")
-print("-----------------")
-base = validanumero("float","Ingrese la base del rectángulo: ")
-altura = validanumero("float","Ingrese la altura del rectángulo: ")
-area = calcular_area_rectangulo(base, altura)
-print("El área del rectángulo es:", area)
-
-print("\n")
-
-#area circulo
-print("Area de círculo")
-print("---------------")
-radio = validanumero("float","Ingrese el radio del círculo: ")
-area = calcular_circulo(radio)
-print("El área del círculo es:", area)
-
-print("\n")
-
-
-#calculo promedio
-print("Cálculo de Promedio")
-print("-------------------")
-numero="0"
-while numero != 0:
-    numeros = []
-    while True:
-        numero = validanumero("float","Ingrese un número (0 para finalizar): ")
-        if numero == 0:
-            break
-        numeros.append(numero)
-promedio = calcular_promedio(numeros)
-promedio_avanzado = calcular_promedio_avanzado(numeros)
-print("El promedio de los números ingresados es:", promedio)
-print("El promedio avanzado de los números ingresados es:", promedio_avanzado)
-
-print("\n")
-
-#numeros aleatorios
-print("Generar número aleatorios")
-print("-------------------------")
-limite = validanumero("int","Ingrese el límite: ")
-cantidad = validanumero("int","Ingrese la cantidad a generar: ")
-numeros_aleatorios = generar_numeros_aleatorios(cantidad, limite)
-print("Números aleatorios generados:", numeros_aleatorios)
-
-print("\n")
-
-     
-Area de triángulo
------------------
-Ingrese la base del rectángulo: 10
-Ingrese la altura del rectángulo: 55
-El área del rectángulo es: 550.0
-
-
-Area de círculo
----------------
-Ingrese el radio del círculo: 34
-El área del círculo es: 3631.681107549801
-
-
-Cálculo de Promedio
--------------------
-Ingrese un número (0 para finalizar): 12
-Ingrese un número (0 para finalizar): 56
-Ingrese un número (0 para finalizar): 78
-Ingrese un número (0 para finalizar): 33
-Ingrese un número (0 para finalizar): 44
-Ingrese un número (0 para finalizar): 53
-Ingrese un número (0 para finalizar): 0
-El promedio de los números ingresados es: 46.0
-El promedio avanzado de los números ingresados es: 46.0
-
-
-Generar número aleatorios
--------------------------
-Ingrese el límite: 6000
-Ingrese la cantidad a generar: 10
-Números aleatorios generados: [5357, 2502, 802, 4624, 3110, 5509, 1671, 4891, 5054, 3084]
-
-
-
-def area_circulo(r: float) -> float:
-    return math.pi * r**2
-        </code></pre>
-        <div class="top"><a href="#top">↑ volver al índice</a></div>
-      </section>
-
-      <!-- 3) PRODUCTOS -->
-      <section id="productos" class="example" aria-labelledby="h-productos">
-        <h2 id="h-productos" class="title">Productos</h2>
-        <p class="muted">Gestión de catálogo y operaciones. Fuente: <code>Python-Productos.ipynb</code></p>
-        <div class="toolbar">
-          <button class="btn" data-copy="#code-productos">Copiar código</button>
-        </div>
-        <pre class="line-numbers"><code class="language-python" id="code-productos">
-# Pega aquí el código principal de "Python-Productos.ipynb"
-# Ejemplo mínimo:
-def filtrar_por_precio(items, min_precio=0, max_precio=float("inf")):
-    return [it for it in items if min_precio <= it["precio"] <= max_precio]
-        </code></pre>
-        <div class="top"><a href="#top">↑ volver al índice</a></div>
-      </section>
-
-      <!-- 4) EDA -->
-      <section id="eda" class="example" aria-labelledby="h-eda">
-        <h2 id="h-eda" class="title">Exploratory Data Analysis (EDA)</h2>
-        <p class="muted">Carga, limpieza y visualización. Fuente: <code>Pyhton-EDA.ipynb</code> (revisa el nombre del archivo: “Pyhton”)</p>
-        <div class="toolbar">
-          <button class="btn" data-copy="#code-eda">Copiar código</button>
-        </div>
-        <pre class="line-numbers"><code class="language-python" id="code-eda">
-# Pega aquí el código principal de "Pyhton-EDA.ipynb"
-# Ejemplo mínimo:
-import pandas as pd
-
-def resumen(df: pd.DataFrame):
-    return {
-        "filas": len(df),
-        "columnas": len(df.columns),
-        "nulos": int(df.isna().sum().sum()),
-    }
-        </code></pre>
-        <div class="top"><a href="#top">↑ volver al índice</a></div>
-      </section>
-
-      <!-- 5) FIN M2 BIBLIOTECA -->
-      <section id="fin-biblioteca" class="example" aria-labelledby="h-fin">
-        <h2 id="h-fin" class="title">Fin M2 · Biblioteca</h2>
-        <p class="muted">Gestión de préstamos/usuarios. Fuente: <code>Python-FinM2Biblioteca.ipynb</code></p>
-        <div class="toolbar">
-          <button class="btn" data-copy="#code-fin">Copiar código</button>
-        </div>
-        <pre class="line-numbers"><code class="language-python" id="code-fin">
-# Pega aquí el código principal de "Python-FinM2Biblioteca.ipynb"
-# Ejemplo mínimo:
-class Biblioteca:
-    def __init__(self):
-        self.prestamos = {}
-
-    def prestar(self, usuario, libro):
-        self.prestamos.setdefault(usuario, []).append(libro)
-        </code></pre>
-        <div class="top"><a href="#top">↑ volver al índice</a></div>
-      </section>
-
-      <!-- 6) ITERACIÓN -->
-      <section id="iteracion" class="example" aria-labelledby="h-iter">
-        <h2 id="h-iter" class="title">Iteración</h2>
-        <p class="muted">Patrones de iteración y generators. Fuente: <code>Python-Iteracion.ipynb</code></p>
-        <div class="toolbar">
-          <button class="btn" data-copy="#code-iter">Copiar código</button>
-        </div>
-        <pre class="line-numbers"><code class="language-python" id="code-iter">
-# Pega aquí el código principal de "Python-Iteracion.ipynb"
-# Ejemplo mínimo:
-def take(n, iterable):
-    for i, x in enumerate(iterable):
-        if i == n: break
-        yield x
-        </code></pre>
-        <div class="top"><a href="#top">↑ volver al índice</a></div>
-      </section>
-
-      <!-- Si tienes 8 secciones, duplica el bloque "section.example" y cambia id/título. -->
+      <!-- Aquí se insertarán las secciones de cada notebook -->
+      <div id="content"></div>
     </main>
 
     <footer style="margin-top:2rem; color:var(--muted)">© <span id="y"></span> Tu Nombre</footer>
   </div>
 
-  <!-- Punto de retorno del índice -->
-  <div id="top" hidden></div>
-
   <!-- Prism core + autoloader + líneas -->
   <script src="https://unpkg.com/prismjs/components/prism-core.min.js"></script>
   <script src="https://unpkg.com/prismjs/plugins/autoloader/prism-autoloader.min.js" data-autoloader-path="https://unpkg.com/prismjs/components/"></script>
   <script src="https://unpkg.com/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
   <script>
-    // Copiado por botón: cada botón tiene data-copy con el selector del <code> destino
-    document.querySelectorAll('button[data-copy]').forEach(btn => {
-      btn.addEventListener('click', async () => {
-        const target = document.querySelector(btn.dataset.copy);
-        const text = target?.innerText ?? '';
-        try {
-          await navigator.clipboard.writeText(text);
-          const old = btn.textContent;
-          btn.textContent = '¡Copiado!';
-          setTimeout(() => btn.textContent = old, 1600);
-        } catch {
-          const old = btn.textContent;
-          btn.textContent = 'Error al copiar';
-          setTimeout(() => btn.textContent = old, 1600);
-        }
-      });
-    });
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // 1) Define aquí tus notebooks (título + ruta al .ipynb dentro del sitio)
+    const NOTEBOOKS = [
+      { id: 'clases',     titulo: 'Clases (OOP)',                   src: '../notebooks/Python-Clases.ipynb' },
+      { id: 'geometria',  titulo: 'Geometría',                      src: '../notebooks/Python-Geometria.ipynb' },
+      { id: 'productos',  titulo: 'Productos',                      src: '../notebooks/Python-Productos.ipynb' },
+      { id: 'eda',        titulo: 'Exploratory Data Analysis (EDA)',src: '../notebooks/Pyhton-EDA.ipynb' }, // ojo al nombre
+      { id: 'finbib',     titulo: 'Fin M2 · Biblioteca',            src: '../notebooks/Python-FinM2Biblioteca.ipynb' },
+      { id: 'iteracion',  titulo: 'Iteración',                      src: '../notebooks/Python-Iteracion.ipynb' },
+      // añade más si quieres
+    ];
+
+    // 2) Construir índice
+    const toc = document.getElementById('toc');
+    NOTEBOOKS.forEach(nb => {
+      const a = document.createElement('a');
+      a.href = `#${nb.id}`;
+      a.textContent = nb.titulo;
+      toc.appendChild(a);
+    });
+
+    // 3) Renderizar cada notebook: extrae SOLO celdas de código
+    const content = document.getElementById('content');
+
+    NOTEBOOKS.forEach(async ({id, titulo, src}) => {
+      const section = document.createElement('section');
+      section.className = 'example';
+      section.id = id;
+
+      section.innerHTML = `
+        <h2 class="title">${titulo}</h2>
+        <div class="toolbar">
+          <button class="btn" data-copy-all>Copiar TODO el código</button>
+        </div>
+        <div class="loading">Cargando código desde <code>${src}</code>…</div>
+        <div class="blocks"></div>
+        <div class="top"><a href="#toc">↑ volver al índice</a></div>
+      `;
+      content.appendChild(section);
+
+      try {
+        const res = await fetch(src);
+        if (!res.ok) throw new Error('No se pudo descargar el notebook');
+        const nb = await res.json();
+
+        const blocks = section.querySelector('.blocks');
+        const loading = section.querySelector('.loading');
+        loading.remove();
+
+        const codes = [];
+        (nb.cells || []).forEach((cell, idx) => {
+          if (cell.cell_type === 'code') {
+            const code = (cell.source || []).join('');
+            codes.push(code);
+
+            const pre = document.createElement('pre');
+            pre.className = 'line-numbers';
+            const codeEl = document.createElement('code');
+            codeEl.className = 'language-python';
+            codeEl.textContent = code;
+            pre.appendChild(codeEl);
+
+            // botón de copiar por bloque
+            const tools = document.createElement('div');
+            tools.className = 'toolbar';
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.textContent = `Copiar bloque #${idx+1}`;
+            btn.addEventListener('click', async () => {
+              try {
+                await navigator.clipboard.writeText(code);
+                const old = btn.textContent; btn.textContent = '¡Copiado!'; setTimeout(()=>btn.textContent=old, 1400);
+              } catch { /* ignore */ }
+            });
+            tools.appendChild(btn);
+
+            blocks.appendChild(tools);
+            blocks.appendChild(pre);
+          }
+          // Si quieres mostrar markdown también:
+          // if (cell.cell_type === 'markdown') {
+          //   const md = document.createElement('div');
+          //   md.innerHTML = marked.parse((cell.source || []).join(''));
+          //   blocks.appendChild(md);
+          // }
+        });
+
+        // Copiar TODO el código de la sección
+        section.querySelector('[data-copy-all]').addEventListener('click', async (e) => {
+          const all = codes.join('\n\n');
+          try {
+            await navigator.clipboard.writeText(all);
+            const old = e.target.textContent; e.target.textContent = '¡Copiado!'; setTimeout(()=>e.target.textContent=old, 1400);
+          } catch { /* ignore */ }
+        });
+
+        // Resalta todo lo que se acaba de inyectar
+        Prism.highlightAllUnder(blocks);
+
+      } catch (err) {
+        const loading = section.querySelector('.loading');
+        loading.textContent = 'Error cargando el notebook. ¿Está el archivo dentro del sitio y con el nombre correcto?';
+      }
+    });
   </script>
 </body>
 </html>
