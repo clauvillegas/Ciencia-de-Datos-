@@ -1,75 +1,29 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mi página en GitHub Pages</title>
-
-  <!-- SEO básico -->
-  <meta name="description" content="Sitio estático simple desplegado con GitHub Pages.">
-  <link rel="icon" href="./assets/favicon.ico">
-
-  <!-- Social (Open Graph / Twitter) -->
-  <meta property="og:title" content="Mi página en GitHub Pages">
-  <meta property="og:description" content="Sitio estático simple desplegado con GitHub Pages.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Estilos -->
-  <link rel="stylesheet" href="./styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio · Python</title>
+  <meta name="description" content="Portafolio de proyectos y ejercicios en Python." />
+  <link rel="icon" href="./assets/favicon.ico" />
+  <link rel="stylesheet" href="./styles.css" />
   <style>
-    /* Puedes borrar esto si usas styles.css */
-    :root { color-scheme: light dark; }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; }
-    main { max-width: 70ch; margin: 6rem auto; padding: 0 1rem; }
-    h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: .5rem; }
-    p { line-height: 1.6; }
-    a.button { display:inline-block; padding:.7rem 1rem; border-radius:.6rem; text-decoration:none; border:1px solid currentColor; }
-    footer { margin: 4rem 0 2rem; font-size: .9rem; opacity: .7; }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>¡Hola, GitHub Pages! 👋</h1>
-    <p>
-      Esta es una página estática servida desde el repositorio.
-      Edita este archivo <code>index.html</code>, sube un <code>styles.css</code>
-      y coloca tus imágenes en <code>/assets</code>.
-    </p>
-
-    <nav aria-label="Enlaces útiles">
-      <a class="button" href="https://github.com/">Ver mi GitHub</a>
-      <a class="button" href="./about.html">Acerca de</a>
-    </nav>
-
-    <section>
-      <h2>¿Cómo funciona?</h2>
-      <ol>
-        <li>Coloca este <code>index.html</code> en la carpeta que publiques (raíz o <code>/docs</code>).</li>
-        <li>Habilita GitHub Pages en <em>Settings → Pages</em>.</li>
-        <li>Accede a la URL que te da GitHub.</li>
-      </ol>
-    </section>
-
-    <section aria-labelledby="recursos">
-      <h2 id="recursos">Recursos</h2>
-      <ul>
-        <li>CSS: <code>./styles.css</code> (usa rutas relativas <strong>./</strong> para que funcionen bajo <code>/usuario/repo/</code>)</li>
-        <li>Imagen para redes: <code>./assets/og-image.png</code> (1200×630 recomendado)</li>
-        <li>Icono: <code>./assets/favicon.ico</code></li>
-      </ul>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Tu Nombre · Hecho con GitHub Pages
-    </footer>
-  </main>
-
-  <script>
-    // Ejemplo mínimo de JS
-    document.getElementById('year').textContent = new Date().getFullYear();
-    console.log('Sitio cargado correctamente.');
-  </script>
-</body>
-</html>
+    :root { color-scheme: light dark; --bg: #0b0c10; --fg: #e8e8ea; --muted:#a9acb3; --card:#111217; --accent:#6ae3ff; --ring:#2b2f36; }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#ffffff; --fg:#13141a; --muted:#656b74; --card:#f7f7f9; --accent:#0ea5e9; --ring:#e6e7eb; }
+    }
+    * { box-sizing: border-box }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Color Emoji"; background:var(--bg); color:var(--fg) }
+    a { color: inherit; text-decoration: none }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.25rem }
+    header { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding: 1rem 0; border-bottom:1px solid var(--ring) }
+    .brand { font-weight:700; letter-spacing:.2px }
+    .nav a { padding:.5rem .8rem; border:1px solid var(--ring); border-radius:.7rem }
+    .hero { display:grid; gap:1rem; padding: 4rem 0 2rem }
+    .hero h1 { font-size: clamp(2rem, 4vw, 3rem); line-height:1.1; margin:0 }
+    .hero p { color:var(--muted); max-width: 70ch; margin:.5rem 0 1.25rem }
+    .cta { display:flex; gap:.75rem; flex-wrap:wrap }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.8rem 1rem; border-radius:.8rem; border:1px solid var(--ring); }
+    .btn.primary { background:var(--accent); color:#031017; border-color: transparent; font-weight:600 }
+    .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap:1rem; padding: 1rem 0 3rem }
+    .card { background:var(--card); border:1px solid var(-
